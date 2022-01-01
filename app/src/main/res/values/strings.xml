@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">KKday Assiment</string>
+    <string name="empty_result_content">Past your first link into the field to shorten it</string>
+    <string name="empty_result_title">Let\'s get started!</string>
 </resources>

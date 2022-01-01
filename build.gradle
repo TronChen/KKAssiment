@@ -12,9 +12,11 @@ buildscript {
             'appCompat'         : '1.4.0',
             'navigation'        : '2.3.5',
             'material'          : '1.4.0',
-            'hilt'              : '2.36',
+            'hilt'              : '2.40.5',
             'retrofit'          : '2.9.0',
             'rx'                : '2.2.19',
+            'rxAndroid'         : '2.1.1',
+            'room'              : "2.4.0",
     ]
 
     ext.deps = [
@@ -23,6 +25,9 @@ buildscript {
                     'core': "androidx.core:core:$versions.core",
                     'ktx': "androidx.core:core-ktx:$versions.core",
                     'appCompat': "androidx.appcompat:appcompat:$versions.appCompat",
+                    'roomRuntime': "androidx.room:room-runtime:$versions.room",
+                    'roomCompiler': "androidx.room:room-compiler:$versions.room",
+                    'roomRxjava2': "androidx.room:room-rxjava2:$versions.room",
                     ],
             'hilt': [
                     'runtime': "com.google.dagger:hilt-android:$versions.hilt",
@@ -48,14 +53,42 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.4"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"
+        classpath "org.jlleitschuh.gradle:ktlint-gradle:10.2.1"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+    }
+}
+
+subprojects {
+    apply plugin: "org.jlleitschuh.gradle.ktlint"
+
+    ktlint {
+        version = "0.40.0"
+        debug = true
+        verbose = true
+        android = true
+        outputToConsole = true
+        outputColorName = "RED"
+        ignoreFailures = true
+        enableExperimentalRules = false
+        reporters {
+            reporter "plain"
+            reporter "checkstyle"
+        }
+        kotlinScriptAdditionalPaths {
+            include fileTree("scripts/")
+        }
+        filter {
+            exclude("**/generated/**")
+            include("**/kotlin/**")
+        }
     }
 }
 

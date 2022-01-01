@@ -17,10 +17,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
 }
 
 dependencies {
@@ -30,8 +26,16 @@ dependencies {
     api deps.androidx.appCompat
     api deps.material
 
+    api deps.rxJava2.core
+    api deps.rxJava2.android
+    api deps.rxJava2.callAdapter
+
     implementation deps.hilt.runtime
     kapt deps.hilt.compiler
+
+    implementation deps.androidx.roomRuntime
+    implementation deps.androidx.roomRxjava2
+    kapt deps.androidx.roomCompiler
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
