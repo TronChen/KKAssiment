@@ -2,5 +2,9 @@
     <string name="app_name">KKday Assiment</string>
     <string name="empty_result_content">Past your first link into the field to shorten it</string>
     <string name="empty_result_title">Let\'s get started!</string>
+    <string name="not_empty_result_title">Check out history!</string>
     <string name="bt_message">Shorten it</string>
+    <string name="go_to_history">Check</string>
+    <string name="copy">Copy</string>
+    <string name="toast_text_copy">Text copied to clipboard</string>
 </resources>

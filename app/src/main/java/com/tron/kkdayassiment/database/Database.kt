@@ -10,7 +10,7 @@ import com.tron.shared.model.History
     entities = [
         History::class,
     ],
-    version = 1
+    version = 2
 )
 abstract class Database : RoomDatabase() {
 

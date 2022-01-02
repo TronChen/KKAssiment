@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 data class History(
 
     @PrimaryKey(autoGenerate = true)
-    val key: Int? = null,
+    val key: Int = 0,
 
     @ColumnInfo(name = "full_short_link")
     val full_short_link: String,

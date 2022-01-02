@@ -1,9 +1,10 @@
-package com.tron.kkdayassiment
+package com.tron.kkdayassiment.main
 
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.tron.kkdayassiment.R
 import com.tron.shared.afterTextChanged
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.shorten_view
@@ -27,6 +28,8 @@ class MainActivity : AppCompatActivity() {
         shorten_view.bt_shorten.setOnClickListener {
             if (viewModel.isInputValid.value == true) {
                 viewModel.getShrtCode()
+            } else {
+                setEditTextError()
             }
         }
 

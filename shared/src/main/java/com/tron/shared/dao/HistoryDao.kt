@@ -7,6 +7,7 @@ import androidx.room.Query
 import androidx.room.Update
 import com.tron.shared.model.History
 import io.reactivex.Completable
+import io.reactivex.Flowable
 import io.reactivex.Single
 
 @Dao
@@ -17,7 +18,7 @@ interface HistoryDao {
 
     // Query
     @Query("SELECT * FROM history_table")
-    fun getAllHistory(): Single<List<History>>
+    fun getAllHistory(): Flowable<List<History>>
 
     // Create
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -28,8 +29,8 @@ interface HistoryDao {
     fun updateHistory(history: History): Completable
 
     // Delete
-    @Query("DELETE FROM history_table WHERE `key` = :date")
-    fun deleteHistory(date: Long): Completable
+    @Query("DELETE FROM history_table WHERE `key` = :key")
+    fun deleteHistory(key: Int): Completable
 
     @Query("DELETE FROM history_table")
     fun clear(): Completable

@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.tron.kkdayassiment.HistoryFragment"
+        android:name="com.tron.kkdayassiment.history.HistoryFragment"
         android:label="history_fragment"
         tools:layout="@layout/history_fragment" />
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.tron.kkdayassiment.WelcomeFragment"
+        android:name="com.tron.kkdayassiment.welcome.WelcomeFragment"
         android:label="welcome_fragment"
         tools:layout="@layout/welcome_fragment" >
         <action
