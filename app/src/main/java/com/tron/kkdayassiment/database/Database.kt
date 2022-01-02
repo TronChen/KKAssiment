@@ -3,18 +3,18 @@ package com.tron.kkdayassiment.database
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.tron.shared.dao.ResponseDao
-import com.tron.shared.model.Response
+import com.tron.shared.dao.HistoryDao
+import com.tron.shared.model.History
 
 @androidx.room.Database(
     entities = [
-        Response::class,
+        History::class,
     ],
     version = 1
 )
 abstract class Database : RoomDatabase() {
 
-    abstract fun responseDao(): ResponseDao
+    abstract fun historyDao(): HistoryDao
 
     companion object {
 

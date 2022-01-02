@@ -4,7 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/88691/AndroidStudioProjects/KKdayAssiment/app/src/main/res/layout/activity_main.xml" value="0.5213541666666667" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.125" />
+        <entry key="app/src/main/res/drawable/edit_text_background.xml" value="0.1865" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/history_fragment.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/view_search.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/welcome_fragment.xml" value="0.13451086956521738" />
       </map>
     </option>
   </component>

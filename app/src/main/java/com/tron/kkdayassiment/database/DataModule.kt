@@ -1,9 +1,9 @@
 package com.tron.kkdayassiment.database
 
 import android.content.Context
-import com.tron.shared.dao.ResponseDao
-import com.tron.shared.domain.ResponseRepository
-import com.tron.shared.impl.ResponseImpl
+import com.tron.shared.dao.HistoryDao
+import com.tron.shared.domain.HistoryRepository
+import com.tron.shared.impl.HistoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -23,12 +23,12 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideResponseDao(database: Database): ResponseDao = database.responseDao()
+    fun provideResponseDao(database: Database): HistoryDao = database.historyDao()
 
     @InstallIn(SingletonComponent::class)
     @Module
     abstract class Bind {
         @Binds
-        abstract fun bindResponseRepository(responseImpl: ResponseImpl): ResponseRepository
+        abstract fun bindResponseRepository(responseImpl: HistoryImpl): HistoryRepository
     }
 }

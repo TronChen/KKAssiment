@@ -24,6 +24,8 @@ buildscript {
             'androidx': [
                     'core': "androidx.core:core:$versions.core",
                     'ktx': "androidx.core:core-ktx:$versions.core",
+                    'navigationFragment': "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
+                    'navigationUi': "androidx.navigation:navigation-ui-ktx:$versions.navigation",
                     'appCompat': "androidx.appcompat:appcompat:$versions.appCompat",
                     'roomRuntime': "androidx.room:room-runtime:$versions.room",
                     'roomCompiler': "androidx.room:room-compiler:$versions.room",
@@ -57,7 +59,7 @@ buildscript {
     }
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.4"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21"
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31'
         classpath "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"
         classpath "org.jlleitschuh.gradle:ktlint-gradle:10.2.1"
 
