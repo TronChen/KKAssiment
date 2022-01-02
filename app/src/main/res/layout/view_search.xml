@@ -3,26 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/design_default_color_primary"
+    android:background="@color/light_blue"
     android:layout_height="180dp">
 
-    <EditText
-        android:id="@+id/tf_short_code"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_short_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginTop="24dp"
-        android:padding="8dp"
-        android:hint="Please input valid value"
-        android:imeOptions="flagForceAscii"
-        android:inputType="textUri"
-        android:maxLines="1"
-        android:background="@drawable/edit_text_background"
-        app:layout_constraintBottom_toTopOf="@+id/bt_shorten"
+        android:layout_marginBottom="24dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:errorEnabled="true"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/et_short_code"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="@string/empty_string"
+            android:imeOptions="flagForceAscii"
+            android:inputType="textUri"
+            android:maxLines="1"
+            android:padding="8dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/bt_shorten"
@@ -37,7 +49,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tf_short_code" />
+        app:layout_constraintTop_toBottomOf="@+id/ti_short_code" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

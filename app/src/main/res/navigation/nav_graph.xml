@@ -17,6 +17,8 @@
         tools:layout="@layout/welcome_fragment" >
         <action
             android:id="@+id/action_welcomeFragment_to_historyFragment"
-            app:destination="@id/historyFragment" />
+            app:destination="@id/historyFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 </navigation>

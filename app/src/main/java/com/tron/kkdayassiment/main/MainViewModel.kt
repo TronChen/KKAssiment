@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.tron.kkdayassiment.ShrtCodeUseCase
+import com.tron.shared.Event
 import com.tron.shared.Scheduler
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.disposables.CompositeDisposable
@@ -23,6 +24,10 @@ class MainViewModel @Inject constructor(
     val isInputValid: LiveData<Boolean>
         get() = _isInputValid
 
+    private val _state = MutableLiveData<Event<Boolean>>()
+    val state: LiveData<Event<Boolean>>
+        get() = _state
+
     private var searchText: String = ""
 
     override fun onCleared() {
@@ -37,6 +42,9 @@ class MainViewModel @Inject constructor(
 
     fun getShrtCode() {
         shrtCodeUseCase.invoke(searchText)
+            .doOnSubscribe { _state.postValue(Event.loading()) }
+            .doOnComplete { _state.postValue(Event.success(true)) }
+            .doOnError { _state.postValue(Event.error(it.message)) }
             .subscribeOn(scheduler.io())
             .observeOn(scheduler.io())
             .subscribe(
@@ -50,7 +58,7 @@ class MainViewModel @Inject constructor(
             .apply { trashBin.add(this) }
     }
 
-    fun checkIsInputValid(input: String) {
+    private fun checkIsInputValid(input: String) {
         if (Patterns.WEB_URL.matcher(input).matches())
             _isInputValid.postValue(true)
         else _isInputValid.postValue(false)

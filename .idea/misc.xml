@@ -9,7 +9,8 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="app/src/main/res/layout/history_fragment.xml" value="0.125" />
         <entry key="app/src/main/res/layout/item_history.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/view_search.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/view_empty_state.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/view_search.xml" value="0.25" />
         <entry key="app/src/main/res/layout/welcome_fragment.xml" value="0.25" />
       </map>
     </option>

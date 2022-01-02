@@ -50,6 +50,13 @@ class HistoryFragment : Fragment() {
 
         viewModel.historyList.observe(viewLifecycleOwner) {
             adapter.submitList(it)
+            if (it.isNullOrEmpty()) {
+                binding.ivLogo.visibility = View.VISIBLE
+                binding.tvEmpty.visibility = View.VISIBLE
+            } else {
+                binding.ivLogo.visibility = View.INVISIBLE
+                binding.tvEmpty.visibility = View.INVISIBLE
+            }
         }
 
         return binding.root
