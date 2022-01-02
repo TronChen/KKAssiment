@@ -2,7 +2,10 @@ package com.tron.kkdayassiment.history
 
 import android.content.ClipData
 import android.content.ClipboardManager
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,11 +33,14 @@ class HistoryFragment : Fragment() {
         _binding = HistoryFragmentBinding.inflate(inflater)
 
         val adapter = HistoryAdapter(
-            { history ->
+            cancelHistory = { history ->
                 viewModel.cancelHistory(history)
             },
-            { history ->
+            copyText = { history ->
                 copyTextToClipboard(history.full_short_link)
+            },
+            browserPageIntent = { history ->
+                launchWebPageIntent(history.full_short_link)
             }
         )
 
@@ -59,5 +65,13 @@ class HistoryFragment : Fragment() {
         val clipData = ClipData.newPlainText("text", shortLink)
         clipboardManager?.setPrimaryClip(clipData)
         Toast.makeText(context, getString(R.string.toast_text_copy), Toast.LENGTH_LONG).show()
+    }
+
+    private fun launchWebPageIntent(url: String) {
+        try {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+        } catch (error: Throwable) {
+            Log.e("launchWebPageIntent", "${error.message}")
+        }
     }
 }

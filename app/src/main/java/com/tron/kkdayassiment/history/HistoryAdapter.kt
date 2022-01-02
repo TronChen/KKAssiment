@@ -11,6 +11,7 @@ import com.tron.shared.model.History
 class HistoryAdapter(
     val cancelHistory: (History) -> Unit,
     val copyText: (History) -> Unit,
+    val browserPageIntent: (History) -> Unit,
 ) : ListAdapter<History, HistoryAdapter.HistoryViewHolder>(HistoryDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
@@ -22,6 +23,7 @@ class HistoryAdapter(
         holder.bind(item)
         holder.binding.ibCancel.setOnClickListener { cancelHistory(item) }
         holder.binding.btCopy.setOnClickListener { copyText(item) }
+        holder.binding.tvShortLink.setOnClickListener { browserPageIntent(item) }
     }
 
     class HistoryViewHolder(val binding: ItemHistoryBinding) : RecyclerView.ViewHolder(binding.root) {
