@@ -14,7 +14,6 @@ object AppModule {
     @InstallIn(SingletonComponent::class)
     @Module
     abstract class Bind {
-
         @Binds
         abstract fun bindScheduler(appSchedulers: AppSchedulers): Scheduler
     }
